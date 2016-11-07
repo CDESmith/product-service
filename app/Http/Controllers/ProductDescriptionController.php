@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
 use Illuminate\Http\Request;
 
+use App\Description;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -14,9 +16,10 @@ class ProductDescriptionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($productId)
     {
         //
+        return Description::ofProduct($productId)->paginate () ;
     }
 
     /**
